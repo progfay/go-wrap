@@ -10,16 +10,16 @@ func After(dst, src interface{}, afterFn func()) error {
 	vSrc := reflect.ValueOf(src)
 
 	if vDst.Kind() != reflect.Ptr {
-		return fmt.Errorf("First argument of WiretapWithArgs must be pointer of function")
+		return fmt.Errorf("First argument must be pointer of function")
 	}
 
 	vDst = vDst.Elem()
 	if vDst.Kind() != reflect.Func {
-		return fmt.Errorf("First argument of WiretapWithArgs must be pointer of function")
+		return fmt.Errorf("First argument must be pointer of function")
 	}
 
 	if vSrc.Kind() != reflect.Func {
-		return fmt.Errorf("Second argument of WiretapWithArgs must be function")
+		return fmt.Errorf("Second argument must be function")
 	}
 
 	if vDst.Type() != vSrc.Type() {
